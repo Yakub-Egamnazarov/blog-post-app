@@ -103,4 +103,22 @@ import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 
 ## NO.22 Exact Match Routes
 
-The <Switch></Switch> start to match the links from start to bottom, and the first one matches, that element fires on. to avoid the wrong firing, exact attribute is used inside <Route exact path="/"></Route>
+The \<Switch></Switch> start to match the links from start to bottom, and the first one matches, that element fires on. to avoid the wrong firing, exact attribute is used inside \<Route exact path="/"></Route>
+
+## NO. 23 Router Links
+
+it is used to intercept the request to the server from anchor tag \<a>, when router links are used, the request not sent to the server, but handles from jsx app itself.
+
+```
+  <Link to="/create">New Blog</Link>
+```
+
+## NO.24 useEffect Cleanup
+
+run cleanup functions in useFetch component, when useEffect mounts
+not sure what errors was about, in my variant this error didn't occur
+
+## NO.25 Route Parameters
+
+route parameter - variable inside a route
+useParams get the parameter from the browser /blogs/:id

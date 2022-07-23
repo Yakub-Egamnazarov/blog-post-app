@@ -1,5 +1,3 @@
-import { useState, useEffect } from "react";
-
 import "./Home.scss";
 import BlogList from "../BlogList/Bloglist";
 import useFetch from "../useFetch";

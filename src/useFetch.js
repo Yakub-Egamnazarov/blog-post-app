@@ -6,8 +6,10 @@ const useFetch = (url) => {
   const [error, setError] = useState(null);
   // Fetching the data as soon the component renders, but only once, because useEffect has empty array for dependency parameter
   useEffect(() => {
+    const abortCont = new AbortController();
+
     setTimeout(() => {
-      fetch(url)
+      fetch(url, { signal: abortCont.signal })
         .then((res) => {
           console.log(res);
           if (!res.ok) {
@@ -21,10 +23,16 @@ const useFetch = (url) => {
           setError(null);
         })
         .catch((err) => {
-          setError(err.message);
-          setIsPending(false);
+          if (err.name === "AbortError") {
+            console.log("fetch aborted");
+          } else {
+            setIsPending(false);
+            setError(err.message);
+          }
         });
     }, 1000);
+
+    return () => abortCont.abort();
   }, [url]); // useEffect dependency reruns useFetch custom hook, whenever url changes
 
   return {
