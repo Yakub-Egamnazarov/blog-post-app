@@ -76,3 +76,31 @@ const [error, setError] = useState(null);
 Moving all the code inside the Home component to an independent component (useFetch) - customer hook. all the customer hooks should start with word use + something (useFetch). all the fetch related code moved to independent file useFetch.json as component.
 
 ## NO.21 The React Routers
+
+The way of doing multiple page websites
+
+Need to instal react-router-dom package
+
+```command-line
+npm install react-router-dom@version
+```
+
+import to main App.js file and wrap the components
+
+```js
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+
+<Router>
+  <Navbar />
+
+  <Switch>
+    <Route path="/">
+      <Home />
+    </Route>
+  </Switch>
+</Router>;
+```
+
+## NO.22 Exact Match Routes
+
+The <Switch></Switch> start to match the links from start to bottom, and the first one matches, that element fires on. to avoid the wrong firing, exact attribute is used inside <Route exact path="/"></Route>
