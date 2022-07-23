@@ -4,34 +4,38 @@ import "./Home.scss";
 import BlogList from "../BlogList/Bloglist";
 
 const Home = () => {
-  const [blogs, setBlogs] = useState([
-    { title: "My new website", body: "lorem ipsum...", author: "mario", id: 1 },
-    { title: "Welcome party", body: "lorem ipsum...", author: "yoshi", id: 2 },
-    {
-      title: "Web Dev top tips",
-      body: "lorem ipsum...",
-      author: "mario",
-      id: 3,
-    },
-  ]);
+  const [blogs, setBlogs] = useState(null);
+  const [isPending, setIsPending] = useState(true);
+  const [error, setError] = useState(null);
 
-  const [name, setName] = useState("Mario");
-
-  const handleDelete = (id) => {
-    const newBlogs = blogs.filter((blog) => blog.id !== id);
-    setBlogs(newBlogs);
-  };
-
+  // Fetching the data as soon the component renders, but only once, because useEffect has empty array for dependency parameter
   useEffect(() => {
-    console.log("use effect run");
-    console.log(name);
-  }, [name]);
+    setTimeout(() => {
+      fetch("http://localhost:8000/blogs")
+        .then((res) => {
+          console.log(res);
+          if (!res.ok) {
+            throw Error("Could not fetch data for that resource...");
+          }
+          return res.json();
+        })
+        .then((data) => {
+          setBlogs(data);
+          setIsPending(false);
+          setError(null);
+        })
+        .catch((err) => {
+          setError(err.message);
+          setIsPending(false);
+        });
+    }, 1000);
+  }, []);
 
   return (
     <div className="home">
-      <BlogList blogs={blogs} title="All Blogs!" handleDelete={handleDelete} />
-      <button onClick={() => setName("luigi")}>Change Name</button>
-      <p>{name}</p>
+      {error && <div>{error}</div>}
+      {isPending && <div>Loading...</div>}
+      {blogs && <BlogList blogs={blogs} title="All Blogs!" />}
     </div>
   );
 };
