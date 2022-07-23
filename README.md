@@ -70,3 +70,9 @@ const [error, setError] = useState(null);
   error && <div>{error}</div>;
 }
 ```
+
+## NO.20 Creating a Custom Hook
+
+Moving all the code inside the Home component to an independent component (useFetch) - customer hook. all the customer hooks should start with word use + something (useFetch). all the fetch related code moved to independent file useFetch.json as component.
+
+## NO.21 The React Routers
