@@ -150,3 +150,24 @@ fetch("http://localhost:8000/blogs", {
   setIsPending(false);
 });
 ```
+
+## NO.30 Programmatic Redirects
+
+useHistory hook from react-router-dom
+
+```js
+import { useHistory } from "react-router-dom";
+```
+
+you can go forwards or backwards through the browsing history by:
+
+```js
+const history = useHistory();
+history.go(-1);
+```
+
+you can also directly redirect the user to certain part of the page by useHistory.push(route)
+
+```js
+history.push("/home");
+```

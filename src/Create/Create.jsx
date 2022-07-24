@@ -1,5 +1,5 @@
 import { useState } from "react";
-
+import { useHistory } from "react-router-dom";
 // Import style for Create.jsx component
 import "./Create.scss";
 
@@ -8,6 +8,7 @@ const Create = () => {
   const [body, setBody] = useState("");
   const [author, setAuthor] = useState("mario");
   const [isPending, setIsPending] = useState(false);
+  const history = useHistory();
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -26,6 +27,9 @@ const Create = () => {
     }).then(() => {
       console.log("New Blog Added");
       setIsPending(false);
+
+      // redirecting the user to home page
+      history.push("/");
     });
   };
 
