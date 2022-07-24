@@ -130,3 +130,8 @@ useFetch custom hook used to reach the blog with specific id.
 ## NO.27 Controlled Inputs (forms)
 
 input values linked to state hook, and controlled by setValue hooks. where set value hook linked to onChange attribute function in input react element, with e.target.value data passed to onChange function. This on change function fired when any change occurs in the element.
+
+## NO.28 Submit Events
+
+onSubmit attribute function is called when pushed the button, so we target this through the form element. and link it to our custom hanldeSubmit function which prevents default behavior of submit form button, and creates const data of blog from state attributes of the react element.
+Now need to do post request which send the blog data to the json servers with blogs, localhost:8000/blogs.
