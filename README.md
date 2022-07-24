@@ -175,3 +175,5 @@ history.push("/home");
 ## NO.31 Deleting Blogs
 
 Deleting blogs is carried on but fetch function for the blogs json server, and to the exact blog by id parameter, and the method of fetching is 'DELETE', which deletes the blog object from the json server. Also used useHistory hook for it would redirect to the home page when deleted.
+
+## NO.32 404 Pages & Next Steps
