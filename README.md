@@ -122,3 +122,7 @@ not sure what errors was about, in my variant this error didn't occur
 
 route parameter - variable inside a route
 useParams get the parameter from the browser /blogs/:id
+
+## NO.26 Reusing Custom Hooks
+
+useFetch custom hook used to reach the blog with specific id.
