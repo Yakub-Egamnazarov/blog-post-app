@@ -126,3 +126,7 @@ useParams get the parameter from the browser /blogs/:id
 ## NO.26 Reusing Custom Hooks
 
 useFetch custom hook used to reach the blog with specific id.
+
+## NO.27 Controlled Inputs (forms)
+
+input values linked to state hook, and controlled by setValue hooks. where set value hook linked to onChange attribute function in input react element, with e.target.value data passed to onChange function. This on change function fired when any change occurs in the element.
