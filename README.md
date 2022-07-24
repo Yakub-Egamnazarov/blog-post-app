@@ -171,3 +171,7 @@ you can also directly redirect the user to certain part of the page by useHistor
 ```js
 history.push("/home");
 ```
+
+## NO.31 Deleting Blogs
+
+Deleting blogs is carried on but fetch function for the blogs json server, and to the exact blog by id parameter, and the method of fetching is 'DELETE', which deletes the blog object from the json server. Also used useHistory hook for it would redirect to the home page when deleted.
