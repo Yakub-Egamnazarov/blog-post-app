@@ -135,3 +135,18 @@ input values linked to state hook, and controlled by setValue hooks. where set v
 
 onSubmit attribute function is called when pushed the button, so we target this through the form element. and link it to our custom hanldeSubmit function which prevents default behavior of submit form button, and creates const data of blog from state attributes of the react element.
 Now need to do post request which send the blog data to the json servers with blogs, localhost:8000/blogs.
+
+## NO.29 Making a POST request
+
+fetch function is used to post the data into the server, second (optional) parameter is used to determined the method of fetch, method is 'POST', header tell what type of data is used, in out case is json format, and body where we assign json string of blog object.
+
+```js
+fetch("http://localhost:8000/blogs", {
+  method: "POST",
+  headers: { "Content-Type": "application/json" },
+  body: JSON.stringify(blog),
+}).then(() => {
+  console.log("New Blog Added");
+  setIsPending(false);
+});
+```
